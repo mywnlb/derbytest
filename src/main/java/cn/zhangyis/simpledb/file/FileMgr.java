@@ -105,11 +105,11 @@ public class FileMgr {
         return blockId;
     }
 
-    private int getFileBlockNum(String fileName) {
+    public int getFileBlockNum(String fileName) {
         try {
             return (int) (getFile(fileName).length() / blockSize);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("cannot access " + fileName);
         }
     }
 
